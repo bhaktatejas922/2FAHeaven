@@ -26,8 +26,15 @@ from googleapiclient.discovery import build
 # The Gmail API scope needed for read-only access
 SCOPES = ['https://www.googleapis.com/auth/gmail.readonly']
 # Path to the OAuth client credentials file
-CLIENT_SECRET_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), 
-                                 'client_secret_124477608337-dqn0h8mf5ttrq516kpfgpscnnnr6iukk.apps.googleusercontent.com.json')
+def find_client_secret_file():
+    """Find the first client_secret JSON file in the current directory."""
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    for file in os.listdir(current_dir):
+        if file.startswith('client_secret') and file.endswith('.json'):
+            return os.path.join(current_dir, file)
+    raise FileNotFoundError("No client_secret JSON file found in the directory")
+
+CLIENT_SECRET_FILE = find_client_secret_file()
 # Path to store the token after authentication
 TOKEN_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'token.json')
 # The email address of the user whose mailbox we want to access

@@ -1,6 +1,8 @@
-# Gmail 2FA Code Extractor
+# Gmail 2FA Code Extractor (w/Google Voice)
 
 This tool automatically extracts two-factor authentication (2FA) codes from your Gmail inbox and copies them to your clipboard. It's perfect for streamlining your authentication workflow when logging into various services.
+It's designed for people that have Google Voice set up with their Gmail, such that they're getting Google Voice text messages in their email as well. 
+It will work for verification codes sent to normal emails as well. 
 
 ## Features
 
